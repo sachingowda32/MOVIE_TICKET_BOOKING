@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}OTP Verification{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/otp.css' %}">
+
+<div class="otp-container">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h2>Enter OTP</h2>
+        <input type="number" name="otp" placeholder="One-Time Password" required>
+        <button type="submit">Verify</button>
+    </form>
+</div>
+{% endblock %}

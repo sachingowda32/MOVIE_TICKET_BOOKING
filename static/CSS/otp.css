@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url('../image/background.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.otp-container {
+    width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+    text-align: center;
+}
+
+.otp-container h2 {
+    margin-bottom: 25px;
+    color: #b30000;
+}
+
+.otp-container input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ff4d4d;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.otp-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e60000;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.otp-container button:hover {
+    background-color: #b30000;
+}
