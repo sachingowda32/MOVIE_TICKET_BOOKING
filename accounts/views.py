@@ -72,14 +72,14 @@ def identify_view(request):
             if User.objects.filter(username=username).exists():
                 user = User.objects.get(username=username)
                 otp = generate_otp()
-                time = timezone.now() + timedelta(minutes=5)
+                time = timezone.now() + timedelta(minutes=10)
                 user.otp_expiry = time
                 user.otp = otp
                 email = user.email
                 user.save()
                 send_mail(
                     'OTP for Movie Ticket Booking',
-                    f'Your OTP is {otp}. It is valid for 5 minutes.',
+                    f'Your OTP is {otp}. It is valid for 10 minutes.',
                     'sachingowda741517@gmail.com',
                     [email],
                     fail_silently=False,
