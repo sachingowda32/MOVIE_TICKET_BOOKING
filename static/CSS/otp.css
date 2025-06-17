@@ -46,3 +46,27 @@ body {
 .otp-container button:hover {
     background-color: #b30000;
 }
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.otp-inputs input[type="text"] {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid #ff4d4d;
+    border-radius: 10px;
+    font-size: 24px;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.otp-inputs input[type="text"]:focus {
+    border-color: #b30000;
+    box-shadow: 0 0 5px rgba(179, 0, 0, 0.5);
+}
+

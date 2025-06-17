@@ -100,7 +100,7 @@ def otp_view(request,en_uname):
     username = decode_uname(en_uname)
     if User.objects.filter(username=username).exists():
         if request.method == 'POST':
-            otp = int(request.POST.get('otp'))
+            otp = int(request.POST.get('otp1') + request.POST.get('otp2') + request.POST.get('otp3') + request.POST.get('otp4'))
             user = User.objects.get(username=username)
             user.otp_verified = False
             if timezone.now() <= user.otp_expiry:

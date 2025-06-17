@@ -10,7 +10,13 @@
     <form action="" method="post">
         {% csrf_token %}
         <h2>Enter OTP</h2>
-        <input type="number" name="otp" placeholder="One-Time Password" required>
+        <div class="otp-inputs">
+            <input type="text" name="otp1" required>
+            <input type="text" name="otp2" required>
+            <input type="text" name="otp3" required>
+            <input type="text" name="otp4" required>
+        </div>
+
         <button type="submit">Verify</button>
     </form>
 </div>
