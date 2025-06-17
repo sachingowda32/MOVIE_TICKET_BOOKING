@@ -1,22 +1,24 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../image/background.png') no-repeat center center fixed;
+    background: url('../../image/background.png') no-repeat center center fixed;
+    /* ../ refers to go down one directory level */
     background-size: cover;
     font-family: 'Segoe UI', sans-serif;
 }
-.reset-password-container {
-    max-width: 450px;
+
+.form-container {
+    width: 400px;
     margin: 80px auto;
-    background: white;
+    background: #fff;
     padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
 }
 
-.reset-password-container h2 {
+.form-container h2 {
     text-align: center;
-    color: #cc0000;
+    color: #b30000;
     margin-bottom: 30px;
 }
 
@@ -26,20 +28,20 @@ form p {
 
 form label {
     display: block;
-    font-weight: 600;
-    color: #990000;
-    margin-bottom: 8px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #cc0000;
 }
 
 form input[type="text"],
-form input[type="password"]{
+form input[type="email"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ff4d4d;
     border-radius: 10px;
+    box-sizing: border-box;
     font-size: 14px;
     margin-bottom: 20px;
-    box-sizing: border-box;
 }
 
 form button {

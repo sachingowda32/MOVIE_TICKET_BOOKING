@@ -4,12 +4,13 @@
 {% block title %}OTP Verification{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/otp.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/otp.css' %}">
 
 <div class="otp-container">
     <form action="" method="post">
         {% csrf_token %}
         <h2>Enter OTP</h2>
+        <div id="timer" class="countdown">10:00</div>
         <div class="otp-inputs">
             <input type="text" name="otp1" required>
             <input type="text" name="otp2" required>
@@ -20,4 +21,5 @@
         <button type="submit">Verify</button>
     </form>
 </div>
+<script src="{% static 'JS/accounts/otp-timer.js' %}"></script>
 {% endblock %}

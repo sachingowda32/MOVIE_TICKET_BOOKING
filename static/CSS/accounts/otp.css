@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../image/background.png') no-repeat center center fixed;
+    background: url('../../image/background.png') no-repeat center center fixed;
     background-size: cover;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -69,4 +69,14 @@ body {
     border-color: #b30000;
     box-shadow: 0 0 5px rgba(179, 0, 0, 0.5);
 }
+
+/* Countdown Timer Styles */
+.countdown {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #d9534f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 
