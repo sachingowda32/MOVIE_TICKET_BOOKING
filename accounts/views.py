@@ -112,6 +112,7 @@ def otp_view(request,en_uname):
                         url = f'/accounts/reset_password/{en_uname}/'
                         return redirect(url)
                     
+                    url = f'/accounts/otp/{en_uname}/'
                     messages.error(request, 'Invalid OTP. Please try again.')
                     return redirect(url)
                 messages.error(request, 'OTP already verified.')
@@ -123,7 +124,11 @@ def otp_view(request,en_uname):
     return redirect('login')
 
 def reset_password_view(request, en_uname):
-    dec_name = decode_uname(en_uname)
+    try:
+        dec_name = decode_uname(en_uname)
+    except:
+        messages.error(request, 'Invalid request.')
+        return redirect('login') 
     user = User.objects.get(username=dec_name)
     if request.method == 'POST':
         form = SetPasswordForm(user, request.POST)
@@ -142,3 +147,4 @@ def reset_password_view(request, en_uname):
         'form': form
     }
     return render(request, 'accounts/reset_password.html', context)
+ 
