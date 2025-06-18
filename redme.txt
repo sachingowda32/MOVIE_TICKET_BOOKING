@@ -1,2 +1,3 @@
 allauth website link
 https://docs.allauth.org/en/latest/installation/quickstart.htmlgit 
+pip freeze ---> to display installed pack

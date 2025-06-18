@@ -1,4 +1,3 @@
-// otp-timer.js
 let time = 600; // 10 minutes in seconds
 const timerElement = document.getElementById('timer');
 
