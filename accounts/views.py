@@ -47,7 +47,8 @@ def login_view(request):
                 if user.is_authenticated:
                     login(request, user)
                     messages.success(request, 'Login successful!')
-                    return redirect('home')
+                    url = '/movies/movie_list/'
+                    return redirect(url)
         return HttpResponse('Invalid credentials')
     
     form = LoginForm()

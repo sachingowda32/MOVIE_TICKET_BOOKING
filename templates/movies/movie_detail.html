@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Now Showing{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/movies/movie_detail.css' %}">
+
+<div class="container">
+    <h1 class="title"><strong>{{ movie.title }}</strong></h1>
+    <div class="movie-details">
+        <div class="movie-image">
+            <img src="{{ movie.movie_image.url }}" alt="{{ movie.title }}">
+        </div>
+        <div class="movie-info">
+            <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+            <p><strong>Language:</strong> {{ movie.language }}</p>
+            <p><strong>Genre:</strong> {{ movie.genre }}</p>
+            <p><strong>About the movie:</strong> {{ movie.synopsis }}</p>
+            <p><strong>Duration:</strong> {{ movie.duration_minutes }} minutes</p>
+            <p><strong>Status:</strong> {{ movie.status }}</p>
+            <a href="{{ movie.trailer_url }}" class="btn">Watch Trailer</a>
+        </div>
+    </div>    
+
+    <div class="cast">
+        <div class="cast-heading">
+            <h2>Cast</h2>
+        </div>
+        <div class="cast-list">
+            {% for cast in movie.casts.all %}
+                <div class="cast-member">
+                    <div class="cast-image">
+                        <img src="{{ cast.image.url }}" alt="{{ cast.name }}">
+                    </div>
+                    <div class="cast-info">
+                        <p class="cast-name">{{ cast.name }}</p>
+                        <p class="cast-role">{{ cast.role }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

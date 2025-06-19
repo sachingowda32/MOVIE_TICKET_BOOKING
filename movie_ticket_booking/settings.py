@@ -188,7 +188,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 SOCIALACCOUNT_LOGIN_ON_GET = True  # Automatically log in users after social account login
-LOGIN_REDIRECT_URL = '/accounts/home/'  # Redirect to home after login  
+LOGIN_REDIRECT_URL = '/movies/movie_list/'  # Redirect to home after login this url for login with social account
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'

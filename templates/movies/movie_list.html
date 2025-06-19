@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Now Showing{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/movies/movie_list.css' %}">
+
+    <div class="container">
+        <h1 class="title">Now Showing</h1>
+        <div class="movie-grid">
+            {% for movie in movies %}
+                <div class="movie-card">
+                    <a href="{% url 'movie_detail' movie.id %}">
+                        <div class="movie-image">
+                            <img src="{{ movie.movie_image.url }}" alt="{{ movie.title }}">
+                        </div>
+                    </a>
+                    <div class="movie-info">
+                        <h2>{{ movie.title }}</h2>
+                        <p>Release Date: {{ movie.release_date }}</p>
+                        <p>Language: {{ movie.language }}</p>
+                        <p>Genre: {{ movie.genre }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
