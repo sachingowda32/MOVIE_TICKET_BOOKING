@@ -47,7 +47,7 @@ def login_view(request):
                 if user.is_authenticated:
                     login(request, user)
                     messages.success(request, 'Login successful!')
-                    url = '/movies/movie_list/'
+                    url = '/dashboard/movie_list/'
                     return redirect(url)
         return HttpResponse('Invalid credentials')
     
