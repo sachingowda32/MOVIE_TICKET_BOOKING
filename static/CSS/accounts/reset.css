@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('../../image/background.png') no-repeat center center fixed;
+    background: linear-gradient(120deg, #9d9b9b, #868484);
     background-size: cover;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -11,7 +11,7 @@ body {
     background: white;
     padding: 40px 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); */
 }
 
 .reset-password-container h2 {

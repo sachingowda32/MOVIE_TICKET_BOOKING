@@ -41,4 +41,3 @@ class Cast(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100, choices=roles, null=True, blank=True)
     image = models.ImageField(upload_to='casts/', null=True, blank=True)
-

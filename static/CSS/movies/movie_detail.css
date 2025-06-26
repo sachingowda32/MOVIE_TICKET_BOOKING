@@ -1,13 +1,8 @@
-/* Global Styles */
 body {
-    background-color: #f4f4f4;
+    background: linear-gradient(120deg, #9d9b9b, #868484);
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-* {
-    box-sizing: border-box;
 }
 
 .container {
@@ -19,7 +14,6 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Title */
 .title {
     font-size: 36px;
     text-align: center;
@@ -27,7 +21,6 @@ body {
     color: #333;
 }
 
-/* Movie Details */
 .movie-details {
     display: flex;
     flex-wrap: wrap;
@@ -57,43 +50,50 @@ body {
     font-size: 16px;
     color: #555;
     margin: 8px 0;
-    line-height: 1.5;
 }
 
-.movie-info strong {
-    color: #222;
+.rating-review-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
 }
 
-/* Trailer Button */
 .btn {
-    display: inline-block;
-    margin-top: 20px;
     padding: 10px 20px;
     background-color: #e50914;
     color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    border: none;
     border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .btn:hover {
     background-color: #b00710;
 }
 
-/* Cast Section */
+.review-btn {
+    background-color: #007bff;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.review-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Cast section */
 .cast {
-    display: flex;
-    flex-direction: column;
     margin-top: 60px;
     padding: 30px;
     background-color: #f7f2f2;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-}
-
-.cast-heading {
-    margin-bottom: 30px;
 }
 
 .cast-heading h2 {
@@ -104,28 +104,25 @@ body {
     display: inline-block;
 }
 
-/* Cast list aligned to the left */
 .cast-list {
     display: flex;
     flex-wrap: wrap;
     gap: 25px;
-    justify-content: flex-start; /* Align to left */
+    margin-top: 20px;
 }
 
-/* Cast Member Card */
 .cast-member {
     width: 160px;
     background-color: #fefefe;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     padding: 15px 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
 }
 
 .cast-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .cast-image img {
@@ -147,4 +144,57 @@ body {
 .cast-role {
     font-size: 14px;
     color: #888;
+}
+
+/* Reviews */
+.review-list {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f7f2f2;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.review-heading {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e50914;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+.review-item {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-left: 4px solid #e50914;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 15px;
+    line-height: 1.6;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+#show-more-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#show-more-btn:hover {
+    background-color: #b00710;
+}
+
+/* Hide extra reviews */
+.d-none {
+    display: none;
 }

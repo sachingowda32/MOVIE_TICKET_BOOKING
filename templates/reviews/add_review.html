@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/reviews/review.css' %}">
+
+<div class="container mt-5">
+  <h2>Rate {{ movie.title }}</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="rating">Rating (1 to 10):</label>
+      <input type="" class="form-control" name="rating" min="1" max="10" step="0.1" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="review_text">Review (optional):</label>
+      <textarea class="form-control" name="review_text" rows="4" placeholder="Write your review here..."></textarea>
+    </div>
+
+    <button type="submit">Submit Review</button>
+  </form>
+</div>
+{% endblock %}

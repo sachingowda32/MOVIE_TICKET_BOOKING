@@ -47,8 +47,8 @@ def login_view(request):
                 if user.is_authenticated:
                     login(request, user)
                     messages.success(request, 'Login successful!')
-                    url = '/dashboard/movie_list/'
-                    return redirect(url)
+                    url = ''
+                    return redirect('movie_list')
         return HttpResponse('Invalid credentials')
     
     form = LoginForm()
@@ -60,7 +60,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.error(request, 'You have been logged out successfully.')
-    return redirect('login')  # Redirect to the login page after logout  
+    return redirect('movie_list')  # Redirect to the login page after logout  
 
 def home_view(request):
     return render(request, 'accounts/home.html')

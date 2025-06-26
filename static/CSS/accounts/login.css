@@ -1,15 +1,8 @@
-/* body {
-    background: linear-gradient(135deg,  #5a5555, #af8787);
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-} */
 body {
+    background: linear-gradient(120deg, #9d9b9b, #868484);
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background: url('../../image/background.png') no-repeat center center fixed;
-    background-size: cover;
-    font-family: 'Segoe UI', sans-serif;
 }
 
 
@@ -19,7 +12,7 @@ body {
     background: white;
     padding: 40px 30px;
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2);
+    /* box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2); */
 }
 
 .form-container h2 {
