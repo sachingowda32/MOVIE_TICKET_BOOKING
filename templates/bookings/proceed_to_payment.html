@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bookings/Proceed_to_payment.css' %}">
+
+<div class="order-summary-wrapper">
+  <div class="order-summary">
+    <h2>🎟️ Movie Ticket</h2>
+
+    <div class="summary-section">
+      <div class="summary-item">
+        <span class="label">Movie:</span>
+        <span>{{ movie }}</span>
+      </div>
+
+      <div class="summary-item">
+        <span class="label">Theater:</span>
+        <span>{{ theater }}</span>
+      </div>
+
+      <div class="summary-item">
+        <span class="label">Tickets:</span>
+        <span>
+          {% for ticket in tickets %}
+            {{ ticket }}{% if not forloop.last %}, {% endif %}
+          {% endfor %}
+        </span>
+      </div>
+
+      <div class="summary-item">
+        <span class="label">Ticket Price:</span>
+        <span>₹ {{ total_amount }}</span>
+      </div>
+
+      <div class="summary-item">
+        <span class="label">Convenience Fee:</span>
+        <span>₹ {{ convenience_fee }}</span>
+      </div>
+
+      <div class="summary-item total">
+        <span class="label">Total Amount:</span>
+        <span>₹ {{ sub_total }}</span>
+      </div>
+    </div>
+
+    <form method="post" action="{% url 'payment' booking.id %}">
+      {% csrf_token %}
+      <!-- <input type="submit" value="Proceed to Payment" class="proceed-button"> -->
+      <button type="submit" class="proceed-button">Proceed to Paymen</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

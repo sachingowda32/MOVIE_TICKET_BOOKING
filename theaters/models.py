@@ -20,7 +20,6 @@ class Seat(models.Model):
     row_label = models.CharField(max_length=1)
     seat_number = models.IntegerField()
     seat_type = models.CharField(max_length=100,choices=seat_type)
-    #is_available = models.BooleanField(default=True)
 
     def __str__(self):
         return f"{self.row_label}{self.seat_number}"

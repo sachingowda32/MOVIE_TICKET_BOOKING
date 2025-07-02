@@ -192,3 +192,5 @@ LOGIN_REDIRECT_URL = 'movie_list'  # Redirect to home after login this url for l
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')

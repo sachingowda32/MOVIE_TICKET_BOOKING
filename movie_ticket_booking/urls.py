@@ -29,6 +29,7 @@ urlpatterns = [
     path('reviews/',include('reviews.urls')),
     path('bookings/',include('bookings.urls')),
     #path('theaters/',views.add_seat,name='add_seat')
+    path('payments/',include('payments.urls'))
 ]
 
 if settings.DEBUG:

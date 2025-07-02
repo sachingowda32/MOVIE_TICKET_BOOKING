@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/payments/success.css' %}">
+
+<div class="success-container">
+    <div class="success-icon">&#10004;</div>
+    <h2>Payment Successful!</h2>
+    <p>Your booking has been confirmed.</p>
+    <p>You will be redirected to the homepage shortly.</p>
+    <a href="{% url 'movie_list' %}" class="home-link">Go to Home Now</a>
+</div>
+
+<script>
+    setTimeout(() => {
+        window.location.href = "{% url 'movie_list' %}";
+    }, 5000);
+</script>
+{% endblock %}

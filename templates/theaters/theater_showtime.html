@@ -10,7 +10,7 @@
             <div class="dates">
             {% for date in dates %}
                 <a href="{% url 'theater_showtime' slug date %}" class="{% if date == current_date %}active-date{% endif %}">
-                    {{ date|date:"D " }}<br>{{ date|date:"d" }}<br>{{ date|date:"M" }}
+                    {{ date|date:"D"|upper }}<br>{{ date|date:"d" }}<br>{{ date|date:"M"|upper }}
                 </a>
             {% endfor %}
             </div>
@@ -28,11 +28,12 @@
 
             <div class="showtimes">
                 {% for show in theater %}
-                    <button class="showtime-btn {% if show.is_active %}active{% endif %}">
+                    <!-- <button class="showtime-btn {% if show.is_active %}active{% endif %}">
                         {{ show.showtime|time:"h:i A" }}
-                    </button>
+                    </button> -->
+                    <a href="{% url 'Seats' show.id %}" class="showtime-btn" style="text-decoration: none;">{{ show.showtime|time:"h:i A" }}</a>
                 {% endfor %}
-            </div>
+            </div> 
             </div>
             {% endfor %}
     {% else %}
@@ -40,11 +41,11 @@
         <div class="dates">
             {% for date in dates %}
                 <a href="{% url 'theater_showtime' slug date %}" class="{% if date == current_date %}active-date{% endif %}">
-                    {{ date|date:"D " }}<br>{{ date|date:"d" }}<br>{{ date|date:"M" }}
+                    {{ date|date:"D"|upper }}<br>{{ date|date:"d" }}<br>{{ date|date:"M"|upper }}
                 </a>
             {% endfor %}
         </div>
-            <h1>No showtimes found.</h1>
+            <h1><Strong>No showtimes found.</Strong></h1>
         </div>
     {% endif %}
 </div>
