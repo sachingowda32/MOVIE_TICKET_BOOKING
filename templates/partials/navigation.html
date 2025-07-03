@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar</title>
+  <link rel="stylesheet" href="{% static 'CSS/partials/nav.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <!-- Left: Logo -->
+    <div class="nav-left">
+      <a href="{% url 'movie_list' %}">
+        <img src="{% static 'image/logo.png' %}" alt="Logo" class="logo">
+      </a>
+    </div>
+
+    <!-- Center: Search Bar -->
+    <div class="nav-center">
+      <form method="post" class="search-form" action="{% url 'movie_search' %}">
+        {% csrf_token %}
+        <input type="text" name="title" id="title" placeholder="Search movies..." required>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- Right: Location + Home + User Dropdown -->
+    <div class="nav-right">
+      <!-- Location Dropdown -->
+      <select name="location" class="dropdown">
+        <option>Bangalore</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Chennai</option>
+      </select>
+
+      <!-- Home Link -->
+      <a href="{% url 'movie_list' %}" class="home-link">Home</a>
+
+      <!-- User Dropdown -->
+      <div class="user-dropdown">
+        {% if request.user.is_authenticated %}
+          <div class="dropdown-toggle">
+            {{ request.user.username }}
+            <div class="dropdown-menu">
+              <a href="{% url 'booking_history' %}">Bookings</a>
+              <a href="{% url 'updatepassword' %}">Update Password</a>
+              <a href="{% url 'logout' %}">Logout</a>
+            </div>
+          </div>
+        {% else %}
+          <div class="dropdown-toggle">
+            Account
+            <div class="dropdown-menu">
+              <a href="{% url 'login' %}">Login</a>
+              <a href="{% url 'register' %}">Register</a>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Toggle dropdown menu on click
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        toggle.querySelector('.dropdown-menu').classList.toggle('show');
+      });
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function (e) {
+      document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        if (!toggle.contains(e.target)) {
+          toggle.querySelector('.dropdown-menu').classList.remove('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

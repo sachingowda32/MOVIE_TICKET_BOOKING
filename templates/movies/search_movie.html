@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/movies/search_movie.css' %}">
+<div class="movie-card">
+    <a href="{% url 'movie_detail' movie.slug %}">
+        <div class="movie-image">
+            {% if movie.movie_image %}
+            <img src="{{ movie.movie_image.url }}" alt="{{ movie.title }}">
+            {% else %}
+            <img src="{% static 'image/blank_movie.jpg' %}" alt="No Image Available">
+            {% endif %}
+        </div>
+    </a>
+    <div class="movie-info">
+        <h2>{{ movie.title }}</h2>
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Language:</strong> {{ movie.language }}</p>
+        <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    </div>
+</div>
+{% endblock %}

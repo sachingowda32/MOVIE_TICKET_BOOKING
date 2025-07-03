@@ -4,6 +4,7 @@ from .models import Payment
 from accounts.models import User
 from django.conf import settings
 from django.http import HttpResponse
+from django.core.mail import send_mail
 import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
@@ -41,6 +42,13 @@ def Success_View(request,booking_id):
         amount = booking.total_amount,
         payment_method = 'Card',
         status = 'Success'
+    )
+    send_mail(
+        'Your Tickets have been booked',
+        f'Hi {booking.user.first_name} {booking.user.last_name},\n\n {booking.showtime.showtime} \n\n{booking.showtime.movie} \n\n {payment.amount}',
+        'sachingowda741517@gmail.com',
+        [booking.user.email],
+        fail_silently=False,
     )
     return render(request,'payments/success.html')
 

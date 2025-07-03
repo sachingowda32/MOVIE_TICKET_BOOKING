@@ -5,6 +5,7 @@ from django.contrib import messages
 import datetime
 from django.contrib.auth.decorators import login_required
 from .models import Booking,BookingSeat
+from payments.models import Payment
 from accounts.models import User
 import json
 from django.http import HttpResponse
@@ -105,3 +106,5 @@ def Book_Ticket_View(request,show_id):
         }
         return render(request,'bookings/proceed_to_payment.html',context)
     return HttpResponse('Invalid Request')
+
+

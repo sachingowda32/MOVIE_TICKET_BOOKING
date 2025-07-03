@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from .forms import RegisterForm,LoginForm,IdentityForm
 from django.core.mail import send_mail
 from django.http import HttpResponse
-from django.contrib.auth.forms import AuthenticationForm,SetPasswordForm
+from django.contrib.auth.forms import AuthenticationForm,SetPasswordForm,PasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -12,6 +12,17 @@ from django.utils import timezone
 from datetime import timedelta
 
 # Create your views here.
+def updatepassword(request):
+    user = User.objects.get(username = request.user.username)
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'password update successful')
+            return redirect('movie_list')
+    form = PasswordChangeForm(user=user)
+    return render(request,'accounts/update_pwd.html',{'form':form})
+
 def register_view(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)

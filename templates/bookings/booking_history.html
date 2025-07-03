@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bookings/booking_list.css' %}">
+
+<h2>🎟 My Ticket Bookings</h2>
+
+{% if tickets %}
+  {% for ticket in tickets %}
+    <div class="ticket-card">
+      <div class="ticket-stub"></div>
+      <div class="ticket-stub right"></div>
+
+      <div class="ticket-left">
+        <img src="{{ ticket.movie.movie_image.url }}" alt="{{ ticket.movie.title }}">
+      </div>
+
+      <div class="ticket-right">
+        <p><strong>Movie:</strong> {{ ticket.movie.title }}</p>
+        <p><strong>Theater:</strong> {{ ticket.theater.name }} ({{ ticket.theater.city }})</p>
+        <p><strong>Showtime:</strong> {{ ticket.showtime|date:"D, d M Y h:i A" }}</p>
+        <p><strong>Booking Time:</strong> {{ ticket.booking.booking_time|date:"d M Y, h:i A" }}</p>
+        
+        {% if ticket.payment %}
+          <p><strong>Payment Time:</strong> {{ ticket.payment.transaction_time|date:"d M Y, h:i A" }}</p>
+          <p><strong>Payment Method:</strong> {{ ticket.payment.payment_method }}</p>
+        {% endif %}
+        
+        <p><strong>Status:</strong> {{ ticket.booking.status|capfirst }}</p>
+
+        <p><strong>Seats:</strong><br>
+          {% for seat in ticket.seats %}
+            <span class="seat-tag">{{ seat }}</span>
+          {% endfor %}
+        </p>
+
+        <p class="total-price">Total Paid: ₹{{ ticket.booking.total_amount }}</p>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No bookings found.</p>
+{% endif %}
+{% endblock %}

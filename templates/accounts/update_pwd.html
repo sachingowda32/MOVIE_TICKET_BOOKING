@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/accounts/update_password.css' %}">
+
+<div class="form-container">
+  <h2>🔐 Update Your Password</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update Password" class="submit-btn">
+  </form>
+</div>
+{% endblock %}

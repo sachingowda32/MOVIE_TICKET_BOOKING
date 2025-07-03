@@ -1,0 +1,62 @@
+/* Container styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(120deg, #9d9b9b, #868484);
+}
+
+.movie-card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin: 20px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movie-card:hover {
+    transform: scale(1.03);
+}
+
+/* Image section */
+.movie-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Info section */
+.movie-info {
+    padding: 20px;
+}
+
+.movie-info h2 {
+    font-size: 1.5rem;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.movie-info p {
+    margin: 5px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.movie-info p strong {
+    color: #111;
+}
+
+/* Responsive for smaller devices */
+@media screen and (max-width: 500px) {
+    .movie-card {
+        width: 90%;
+    }
+
+    .movie-image img {
+        height: 300px;
+    }
+}

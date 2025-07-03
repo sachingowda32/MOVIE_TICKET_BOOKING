@@ -10,6 +10,7 @@ class Booking(models.Model):
     status = models.CharField(max_length=20,default='pending',choices=[('pending','pending'),('booked','booked'),('cancelled','cancelled')])
     total_amount = models.DecimalField(max_digits=10,decimal_places=2,null=True,blank=True)
 
+
 class BookingSeat(models.Model):
     booking = models.ForeignKey(Booking,on_delete=models.CASCADE)
     seat = models.ForeignKey(Seat,on_delete=models.CASCADE)
